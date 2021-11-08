@@ -1,0 +1,7 @@
+{
+  "name": "coaching-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}
