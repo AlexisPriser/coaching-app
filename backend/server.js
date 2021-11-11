@@ -8,6 +8,7 @@ require('./router/router.js')(app);
 const db = require('./config/db.config.js');
 
 const Role = db.role;
+const Objectif = db.objectif;
 
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: false}).then(() => {
@@ -33,5 +34,25 @@ function initial() {
 	Role.create({
 		id: 2,
 		name: "COACH"
+	});
+
+	Objectif.create({
+		id: 1,
+		name: "squats"
+	});
+
+	Objectif.create({
+		id: 2,
+		name: "pompes"
+	});
+
+	Objectif.create({
+		id: 3,
+		name: "fentes"
+	});
+
+	Objectif.create({
+		id: 4,
+		name: "gainages"
 	});
 }
