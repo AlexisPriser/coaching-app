@@ -1,6 +1,6 @@
 const db = require('../config/db.config.js');
 const config = require('../config/config.js');
-const User = db.user;
+const User = db.utilisateur;
 const Role = db.role;
 const Run = db.run;
 const Enemie = db.enemie;
@@ -81,8 +81,8 @@ where: {
 exports.signup = (req, res) => {
 	// Save User to Database
 	User.create({
-		name: req.body.name,
-		username: req.body.username,
+		nom: req.body.nom,
+      	prenom: req.body.prenom,
 		email: req.body.email,
 		password: bcrypt.hashSync(req.body.password, 8)
 	}).then(user => {
@@ -107,7 +107,8 @@ exports.signup = (req, res) => {
 exports.signin = (req, res) => {
 	User.findOne({
 		where: {
-			username: req.body.username
+			nom: req.body.nom,
+      		prenom: req.body.prenom
 		}
 	}).then(user => {
 		if (!user) {
